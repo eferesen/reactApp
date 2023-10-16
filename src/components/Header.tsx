@@ -14,10 +14,10 @@ const Header = () => {
         console.log(`event ${event.data.eh_visit_id}`)
         console.log(`Setting cookie ${host}`)
         setCookieValue(`eh_visit_id`, event.data.eh_visit_id, {
-          sameSite: 'strict'
+          sameSite: 'lax'
         });
         setCookieValue(`eh_visit_ts`, event.data.eh_visit_ts, {
-          sameSite: 'strict'
+          sameSite: 'lax'
         });
       }
     })
