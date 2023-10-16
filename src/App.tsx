@@ -11,7 +11,8 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path='cookieStorage' element={<CookieStorage />} />
     </Route>
-  )
+  ),
+  { basename: import.meta.env.DEV ? '/' : '/reactApp/' }
 )
 
 function App() {
