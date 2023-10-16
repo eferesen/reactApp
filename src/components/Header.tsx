@@ -11,6 +11,7 @@ const Header = () => {
 
       // Only take action if origin is present and visitId is present
       if (event.data.eh_visit_id && hosts.includes(host)) {
+        console.log(`event ${event.data.eh_visit_id}`)
         console.log(`Setting cookie ${host}`)
         setCookieValue(`eh_visit_id`, event.data.eh_visit_id, {
           sameSite: 'strict'
