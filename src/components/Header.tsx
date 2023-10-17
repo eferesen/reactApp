@@ -12,14 +12,14 @@ const Header = () => {
       // Only take action if origin is present and visitId is present
       if (event.data.eh_visit_id && hosts.includes(host)) {
         console.log(`event ${event.data.eh_visit_id}`)
-        console.log(`Setting cookie ${host}`)
+        console.log(`Setting cookie from ${host}`)
         setCookieValue(`eh_visit_id_${host}`, event.data.eh_visit_id, {
           sameSite: 'lax'
         });
-        setCookieValue(`eh_visit_ts${host}`, event.data.eh_visit_ts, {
+        setCookieValue(`eh_visit_ts_${host}`, event.data.eh_visit_ts, {
           sameSite: 'lax'
         });
-        window.sessionStorage.setItem('eh_visit_id', event.data.eh_visit_id)
+        window.sessionStorage.setItem(`eh_visit_id_${host}`, event.data.eh_visit_id)
       }
     })
   }, [])
