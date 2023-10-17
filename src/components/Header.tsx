@@ -19,6 +19,7 @@ const Header = () => {
         setCookieValue(`eh_visit_ts`, event.data.eh_visit_ts, {
           sameSite: 'lax'
         });
+        window.sessionStorage.setItem('eh_visit_id', event.data.eh_visit_id)
       }
     })
   }, [])
