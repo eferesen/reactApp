@@ -13,12 +13,12 @@ const Header = () => {
       if (event.data.eh_visit_id && hosts.includes(host)) {
         console.log(`event ${event.data.eh_visit_id}`)
         console.log(`Setting cookie from ${host}`)
-        setCookieValue(`eh_visit_id_${host}`, event.data.eh_visit_id, {
-          sameSite: 'lax'
-        });
-        setCookieValue(`eh_visit_ts_${host}`, event.data.eh_visit_ts, {
-          sameSite: 'lax'
-        });
+        try {
+          setCookieValue(`eh_visit_id_${host}`, event.data.eh_visit_id, {});
+          setCookieValue(`eh_visit_ts_${host}`, event.data.eh_visit_ts, {});
+        } catch (e) {
+          console.log(e)
+        }
         window.sessionStorage.setItem(`eh_visit_id_${host}`, event.data.eh_visit_id)
       }
     })
