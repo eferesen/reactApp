@@ -13,10 +13,10 @@ const Header = () => {
       if (event.data.eh_visit_id && hosts.includes(host)) {
         console.log(`event ${event.data.eh_visit_id}`)
         console.log(`Setting cookie ${host}`)
-        setCookieValue(`eh_visit_id`, event.data.eh_visit_id, {
+        setCookieValue(`eh_visit_id_${host}`, event.data.eh_visit_id, {
           sameSite: 'lax'
         });
-        setCookieValue(`eh_visit_ts`, event.data.eh_visit_ts, {
+        setCookieValue(`eh_visit_ts${host}`, event.data.eh_visit_ts, {
           sameSite: 'lax'
         });
         window.sessionStorage.setItem('eh_visit_id', event.data.eh_visit_id)
